@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install Composer dependencies
-      - run: composer install --prefer-dist
+        run: composer install --prefer-dist
       - name: Run tests
         run: php vendor/bin/phpunit
