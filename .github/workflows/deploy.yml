@@ -20,5 +20,5 @@ jobs:
           context: .
           push: true
           tags:
-            ghcr.io/Oligkondr/crud_v3_ts:latest
+            ghcr.io/oligkondr/crud_v3_ts:latest
 
