@@ -20,9 +20,10 @@ jobs:
         with:
           node-version: '20.11.0'
       - name: Install node
-        run: npm ci
-      - name: Build frontend
-        run: npm run build
+        run: |
+          npm --version
+          npm install
+          npm run build
       - name: Copy .env file
         run: cp .env.ci .env
       - name: Install Composer dependencies
