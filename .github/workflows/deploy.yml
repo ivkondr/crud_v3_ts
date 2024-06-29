@@ -16,4 +16,5 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           host: ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: 'cd /home/oleg/projects/crud_v3_ts && ./server_deploy.sh'
+#          script: 'cd /home/oleg/projects/crud_v3_ts && ./server_deploy.sh'
+          script: '/home/oleg/projects/crud_v3_ts/server_deploy.sh'
