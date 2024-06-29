@@ -15,19 +15,19 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
+      - name: Copy .env file
+        run: cp .env.ci .env
+      - name: Install Composer dependencies
+        run: composer install
       - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: '20.11.0'
-#      - name: Install node
-#        run: |
-#          node --version
-#          npm --version
-#          npm install
-#          npm run build
-      - name: Copy .env file
-        run: cp .env.ci .env
-      - name: Install Composer dependencies
-        run: composer install --prefer-dist
+      - name: Install node
+        run: |
+          node --version
+          npm --version
+          npm install
+          npm run build
       - name: Run tests
         run: php artisan test
