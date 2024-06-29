@@ -17,6 +17,7 @@ jobs:
           php-version: '8.2'
       - name: Setup node
         uses: actions/setup-node@v4
+      - name: Install node
         run: npm ci | npm run build
       - name: Copy .env file
         run: cp .env.ci .env
