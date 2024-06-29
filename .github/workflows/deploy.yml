@@ -1,6 +1,9 @@
 name: deploy docker
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   Deploy:
@@ -21,4 +24,3 @@ jobs:
           push: true
           tags:
             ghcr.io/oligkondr/crud_v3_ts:latest
-
