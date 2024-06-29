@@ -1,24 +1,19 @@
-name: deploy docker
+name: Yellow Laravel Deployment
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
-  Deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v1
-      - name: Login to container
-        uses: docker/login-action@v1
+      - uses: actions/checkout@v2
+      - name: Deploy to production
+        uses: appleboy/ssh-action@master
         with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags:
-            ghcr.io/oligkondr/crud_v3_ts:latest
-
+          username: ${{ secrets.SSH_USERNAME }}
+          host: ${{ secrets.SSH_HOST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: 'cd /home/oleg/projects/crud_v3_ts && ./server_deploy.sh'
