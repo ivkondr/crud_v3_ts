@@ -1,6 +1,9 @@
 name: test_crud
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   phpunit:
@@ -12,9 +15,11 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
+      - name: Setup node
+        uses: actions/setup-node@v4
+        run: npm ci | npm run build
       - name: Copy .env file
-        run: |
-          cp .env.ci .env
+        run: cp .env.ci .env
       - name: Install Composer dependencies
         run: composer install --prefer-dist
       - name: Run tests
