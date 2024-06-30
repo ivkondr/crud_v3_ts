@@ -14,7 +14,7 @@ jobs:
           username: "ivkondr"
           password: "k1o9n8d0r"
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./../..
           push: true
