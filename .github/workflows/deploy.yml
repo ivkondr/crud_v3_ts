@@ -30,4 +30,4 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           host: ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: docker-compose -f docker-compose-prod.yml up -d
+          script: docker-compose -f /home/oleg/projects/crud_v3_ts/docker-compose-prod.yml up -d
