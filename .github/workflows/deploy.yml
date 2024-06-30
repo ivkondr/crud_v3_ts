@@ -21,3 +21,5 @@ jobs:
           context: ./.docker/8.3
           push: true
           tags: ivkondr/test:latest
+          build-args: |
+            WWWGROUP=1000
