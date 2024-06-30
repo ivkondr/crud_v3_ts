@@ -9,13 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Login to GitHub Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           username: "ivkondr"
           password: "k1o9n8d0r"
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: ./../..
           push: true
           tags: ivkondr/test:latest
